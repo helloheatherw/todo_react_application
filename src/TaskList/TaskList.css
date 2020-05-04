@@ -1,0 +1,19 @@
+.tasks {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 350px;
+}
+
+.tasks--all-complete,
+.tasks--all-active {
+  font-size: 0.7em;
+  list-style-type: none;
+  padding-inline-start: 0;
+  text-align: left;
+}
+
+@media only screen and (min-width: 576px) {
+    .tasks {
+        max-width: 100%;
+    }
+}

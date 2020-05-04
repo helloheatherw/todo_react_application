@@ -1,0 +1,82 @@
+.task {
+    display: flex;
+    justify-content: space-between;
+}
+  
+.task__actions {
+    display: flex;
+    min-width: 65px;
+}
+
+.task--active .task__action-button:first-child {
+    margin-right: 16px;
+}
+
+.task__text {
+    font-size: 1.2em;
+}
+
+.task--active,
+.task--complete {
+    margin-bottom: 8px;
+}
+
+.complete-svg,
+.delete-svg {
+    width: 12px;
+}
+
+.task--complete .task__text {
+    text-decoration: line-through;
+}
+
+.task__action-button {
+    height: 21px;
+}
+
+.task__complete-button {
+    background-color: var(--light);
+}
+
+.task__delete-button {
+    background-color: transparent;
+}
+
+.task--complete .task__delete-button {
+    margin-right: 0;
+}
+
+.task__delete-button,
+.task__complete-button {
+    align-items: center;
+    border: 1px solid var(--dark);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 150px;
+}
+
+.task__delete-button:hover,
+.task__complete-button:hover {
+    background-color: var(--light);
+}
+
+.button--text {
+    display: none;
+}
+
+@media only screen and (min-width: 576px) {
+    .task__actions {
+        width: auto;
+    }
+
+    .task__complete-button {
+        order: -1;
+    }
+
+    .button--text {
+        display: inline-block;
+        margin-left: 8px;
+    }
+}
