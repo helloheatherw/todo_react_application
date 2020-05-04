@@ -1,27 +1,27 @@
-.task-input {
+.add-task {
     justify-content: center;
     margin: 0 auto 16px;
     width: 100%;
 }
   
-.task-input__input-field {
+.add-task__input-field {
     margin-bottom: 4px;
     margin-left: 20px;
     margin-right: 20px;
 }
 
-.task-input__add-button {
+.add-task__add-button {
     height: calc(1.5em + .75rem + 2px);
     vertical-align: middle;
 }
 
-.task-input__add-button:hover {
+.add-task__add-button:hover {
     background-color: var(--background);
     border-color: var(--dark);
 }
 
-.task-input__input-field, 
-.task-input__add-button {
+.add-task__input-field, 
+.add-task__add-button {
     border: var(--dark) 2px solid;
     background-color: var(--light);
     color: var(--dark);
@@ -46,13 +46,13 @@
 }
 
 @media only screen and (min-width:576px) {
-    .task-input__input-field {
+    .add-task__input-field {
         margin-left: 0;
         margin-right: 0;
         min-width: 300px;
     }
 
-    .task-input__add-button {
+    .add-task__add-button {
         margin-bottom: 4px;
         margin-left: 8px;
     }

@@ -1,11 +1,11 @@
-.tasks {
+.task-list {
     width: 100%;
     margin: 0 auto;
     max-width: 350px;
 }
 
-.tasks--all-complete,
-.tasks--all-active {
+.task-list--all-complete,
+.task-list--all-active {
   font-size: 0.7em;
   list-style-type: none;
   padding-inline-start: 0;
@@ -13,7 +13,7 @@
 }
 
 @media only screen and (min-width: 576px) {
-    .tasks {
+    .task-list {
         max-width: 100%;
     }
 }
