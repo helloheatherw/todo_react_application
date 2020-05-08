@@ -8,7 +8,11 @@ import './TaskItem.css';
 function TaskItem(props) {
   return (
     <li className="task">
-      <span className="task__text">{ props.text }</span>
+      <span className="task__text">
+        { props.text }
+        <span className="task__date">{ props.dueDate }</span>
+      </span>
+      
       <div className="task__actions">
         <button type="button" className="task__action-button task__complete-button">
           <img src={ completeIcon } alt="" className="complete-svg"/>

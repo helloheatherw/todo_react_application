@@ -14,7 +14,16 @@
 }
 
 .task__text {
+    display: flex;
     font-size: 1.2em;
+    justify-content: space-between;
+    padding-right: 10px;
+    text-align: left;
+    width: 70%;
+}
+
+.task__date {
+    display: none;
 }
 
 .task--active,
@@ -72,8 +81,8 @@
         width: auto;
     }
 
-    .task__complete-button {
-        order: -1;
+    .task__date {
+        display: inline-block;
     }
 
     .button--text {

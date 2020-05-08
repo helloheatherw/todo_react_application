@@ -14,11 +14,11 @@ function App() {
       <AddTask /> 
       <RemainingTasks />
       <ul className="task-list">
-        <TaskItem text="Paint and oil outdoor furniture" />
-        <TaskItem text="Hang pictures in bedroom" />
-        <TaskItem text="Order party decorations" />
-        <TaskItem text="Order replacement printer toner" />
-        <TaskItem text="Organise Metrolink refund" />
+        <TaskItem text="Paint and oil outdoor furniture" completed={ false } dueDate="2020-06-01" />
+        <TaskItem text="Hang pictures in bedroom" completed={ false } dueDate="2020-07-01" />
+        <TaskItem text="Order party decorations" completed = { true } dueDate="2020-05-01"/>
+        <TaskItem text="Order replacement printer toner" completed={ true } dueDate="2020-05-01"/>
+        <TaskItem text="Organise Metrolink refund" completed={ true } dueDate="2020-05-01"/>
       </ul>
     </div>
   );
