@@ -3,7 +3,7 @@ import React from "react";
 import Header from "./Header/Header";
 import AddTask from "./AddTask/AddTask";
 import RemainingTasks from "./RemainingTasks/RemainingTasks";
-import TaskList from "./TaskList/TaskList";
+import TaskItem from "./TaskItem/TaskItem";
 
 import "./App.css";
 
@@ -13,7 +13,13 @@ function App() {
       <Header />
       <AddTask /> 
       <RemainingTasks />
-      <TaskList />
+      <ul className="task-list">
+        <TaskItem text="Paint and oil outdoor furniture" />
+        <TaskItem text="Hang pictures in bedroom" />
+        <TaskItem text="Order party decorations" />
+        <TaskItem text="Order replacement printer toner" />
+        <TaskItem text="Organise Metrolink refund" />
+      </ul>
     </div>
   );
 }

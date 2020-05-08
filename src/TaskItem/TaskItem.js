@@ -7,15 +7,13 @@ import './TaskItem.css';
 
 function TaskItem(props) {
   return (
-    <li className={`task task--${ props.status }`}>
+    <li className="task">
       <span className="task__text">{ props.text }</span>
       <div className="task__actions">
-        { props.status === "active" && 
-            <button type="button" className="task__action-button task__complete-button">
-              <img src={ completeIcon } alt="" className="complete-svg"/>
-              <span className="button--text" aria-hidden="false">Complete</span>
-            </button>
-        }
+        <button type="button" className="task__action-button task__complete-button">
+          <img src={ completeIcon } alt="" className="complete-svg"/>
+          <span className="button--text" aria-hidden="false">Complete</span>
+        </button>
 
         <button type="button" className="task__action-button task__delete-button">
           <img src={ deleteIcon } alt="" className="delete-svg"/>

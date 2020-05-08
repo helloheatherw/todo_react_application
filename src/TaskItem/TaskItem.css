@@ -1,5 +1,6 @@
 .task {
     display: flex;
+    font-size: 0.7em;
     justify-content: space-between;
 }
   
