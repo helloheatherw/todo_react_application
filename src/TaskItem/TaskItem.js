@@ -6,12 +6,8 @@ import deleteIcon from '../icons/close.svg'
 import './TaskItem.css';
 
 function TaskItem(props) {
-  // const classname = 'task'
-  //Example
-  // <li className={`${classname} ${classname}--${ props.completed ? 'complete' : 'active'}`}
-  
   return (
-    <li className={`task task--${ props.completed ? 'complete' : 'active'} row`}>
+    <li className={`task task--${ props.completed ? 'complete' : 'active'}`}>
       <span className="task__text">
         { props.text }
         <span className="task__date">{ props.dueDate }</span>
