@@ -6,18 +6,22 @@ import deleteIcon from '../icons/close.svg'
 import './TaskItem.css';
 
 function TaskItem(props) {
+  // const classname = 'task'
+  //Example
+  // <li className={`${classname} ${classname}--${ props.completed ? 'complete' : 'active'}`}
+  
   return (
-    <li className="task">
+    <li className={`task task--${ props.completed ? 'complete' : 'active'} row`}>
       <span className="task__text">
         { props.text }
         <span className="task__date">{ props.dueDate }</span>
       </span>
       
       <div className="task__actions">
-        <button type="button" className="task__action-button task__complete-button">
+        { !props.completed && <button type="button" className="task__action-button task__complete-button">
           <img src={ completeIcon } alt="" className="complete-svg"/>
           <span className="button--text" aria-hidden="false">Complete</span>
-        </button>
+        </button>}
 
         <button type="button" className="task__action-button task__delete-button">
           <img src={ deleteIcon } alt="" className="delete-svg"/>
