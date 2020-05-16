@@ -15,10 +15,34 @@ function App() {
     { text: "Order replacement printer toner", completed: true, dueDate: "2020-05-01", id: '004' },
     { text: "Organise Metrolink refund", completed: true, dueDate: "2020-05-10", id: '005' }
   ]);
+  // const [ deletedTasks, setDeletedTasks ] = useState([])
 
   const activeTasks = tasks.filter(task => !task.completed);
 
-  const completedTasks = tasks.filter(task => task.completed )
+  const completedTasks = tasks.filter(task => task.completed);
+
+  function deleteTask(id) {
+    //look through all the tasks, and find where task.id === id
+    //remove that task
+    //update the task state
+    const updatedTasks = tasks.filter(task => task.id !== id);
+    setTasks(updatedTasks);
+  }
+
+  function completeTask(id) {
+    //look through all the tasks
+    //if task.id === id, change completed: true
+    //update the task state
+    const updatedTasks = tasks.map(task => {
+      if(task.id === id) {
+        //change completed to be true
+        task.completed = true;
+      }
+      return task;
+    })
+
+    setTasks(updatedTasks);
+  }
 
   return (
     <div className="App" id="app">
@@ -26,11 +50,29 @@ function App() {
       <AddTask /> 
       <RemainingTasks count={ activeTasks.length }/>
       <ul className="task-list">
-        { activeTasks.map(task => <TaskItem key={ task.id } text={ task.text } completed={ task.completed } dueDate={ task.dueDate }/>)}
+        { activeTasks.map(task => {
+          return <TaskItem 
+            completeTask={ completeTask }
+            deleteTask={ deleteTask } 
+            id={ task.id } 
+            key={ task.id } 
+            text={ task.text } 
+            completed={ task.completed } 
+            dueDate={ task.dueDate }/>
+        })}
       </ul>
 
       <ul className="task-list">
-      { completedTasks.map(task => <TaskItem key={ task.text } text={ task.text } completed={ task.completed } dueDate={ task.dueDate }/>)}
+      { completedTasks.map(task => { 
+        return <TaskItem 
+          completeTask={ completeTask }
+          deleteTask={ deleteTask } 
+          id={ task.id } 
+          key={ task.id } 
+          text={ task.text } 
+          completed={ task.completed } 
+          dueDate={ task.dueDate }/>
+      })}
       </ul>
     </div>
   );
