@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 import Header from "./Header/Header";
 import AddTask from "./AddTask/AddTask";
@@ -9,11 +10,11 @@ import "./App.css";
 
 function App() {
   const [ tasks, setTasks ] = useState([
-    { text: "Paint and oil outdoor furniture", completed: false, dueDate: "2020-06-01", id: '001' },
-    { text: "Hang pictures in bedroom", completed: false, dueDate: "2020-07-01", id: '002' },
-    { text: "Order party decorations", completed: true, dueDate: "2020-05-01", id: '003' },
-    { text: "Order replacement printer toner", completed: true, dueDate: "2020-05-01", id: '004' },
-    { text: "Organise Metrolink refund", completed: true, dueDate: "2020-05-10", id: '005' }
+    { text: "Paint and oil outdoor furniture", completed: false, dueDate: "2020-06-01", id: uuidv4() },
+    { text: "Hang pictures in bedroom", completed: false, dueDate: "2020-07-01", id: uuidv4() },
+    { text: "Order party decorations", completed: true, dueDate: "2020-05-01", id: uuidv4() },
+    { text: "Order replacement printer toner", completed: true, dueDate: "2020-05-01", id: uuidv4() },
+    { text: "Organise Metrolink refund", completed: true, dueDate: "2020-05-10", id: uuidv4() }
   ]);
   // const [ deletedTasks, setDeletedTasks ] = useState([])
 
