@@ -45,10 +45,27 @@ function App() {
     setTasks(updatedTasks);
   }
 
+  function addTask(text, dueDate) {
+    //get a copy of the tasks that are already there
+    //create a new task, and merge in in to this array
+    //update the task state
+
+    const newTask = { 
+      text: text, 
+      completed: false, 
+      dueDate: dueDate, 
+      id: uuidv4() 
+    }
+
+    const updatedTasks = [ ...tasks, newTask ]
+
+    setTasks(updatedTasks);
+  }
+
   return (
     <div className="App" id="app">
       <Header />
-      <AddTask /> 
+      <AddTask addTask={ addTask }/> 
       <RemainingTasks count={ activeTasks.length }/>
       <ul className="task-list">
         { activeTasks.map(task => {
