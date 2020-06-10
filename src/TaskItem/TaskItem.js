@@ -6,16 +6,6 @@ import deleteIcon from '../icons/close.svg'
 import './TaskItem.css';
 
 function TaskItem(props) {
-  // function handleDeleteClick() {
-  //   props.deleteTask(props.id);
-  // }
-
-  function handleCompleteClick() {
-    // console.log('The complete button has been clicked!');
-    // console.log(props.id);
-    props.completeTask(props.id);
-  }
-
   return (
     <li className={`task task--${ props.completed ? 'complete' : 'active'}`}>
       <span className="task__text">
@@ -28,7 +18,7 @@ function TaskItem(props) {
           <button 
             type="button" 
             className="task__action-button task__complete-button"
-            onClick={ handleCompleteClick }>
+            onClick={ () => props.completeTask(props.id) }>
           <img src={ completeIcon } alt="" className="complete-svg"/>
           <span className="button--text" aria-hidden="false">Complete</span>
         </button>}

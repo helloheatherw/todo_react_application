@@ -8,18 +8,6 @@ function AddTask(props) {
   const [text, setText] = useState("");
   const [dueDate, setDueDate] = useState("");
 
-  function handleTextChange(event) {
-    setText(event.target.value);
-  }
-
-  function handleDateChange(event) {
-    setDueDate(event.target.value);
-  }
-
-  function handleAddTaskClick() {
-    props.addTask(text, dueDate);
-  }
-
   return (
       <Fragment>
         <form className="form-inline add-task">
@@ -28,17 +16,17 @@ function AddTask(props) {
               type="text" 
               className="form-control add-task__input-field add-task--text" 
               id="taskInput"
-              onChange={ handleTextChange }
+              onChange={ e => setText(e.target.value) }
               value={ text }/>
             <input 
               type="date" 
               className="form-control add-task__input-field add-task--date"
-              onChange={ handleDateChange }
+              onChange={ e => setDueDate(e.target.value) }
               value={ dueDate }/>
             <button 
               type="button" 
               className="btn btn-primary add-task__add-button"
-              onClick={ handleAddTaskClick }
+              onClick={ () => props.addTask(text, dueDate) }
               >Add</button>
         </form> 
 

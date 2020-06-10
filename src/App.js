@@ -16,27 +16,19 @@ function App() {
     { text: "Order replacement printer toner", completed: true, dueDate: "2020-05-01", id: uuidv4() },
     { text: "Organise Metrolink refund", completed: true, dueDate: "2020-05-10", id: uuidv4() }
   ]);
-  // const [ deletedTasks, setDeletedTasks ] = useState([])
 
   const activeTasks = tasks.filter(task => !task.completed);
 
   const completedTasks = tasks.filter(task => task.completed);
 
   function deleteTask(id) {
-    //look through all the tasks, and find where task.id === id
-    //remove that task
-    //update the task state
     const updatedTasks = tasks.filter(task => task.id !== id);
     setTasks(updatedTasks);
   }
 
   function completeTask(id) {
-    //look through all the tasks
-    //if task.id === id, change completed: true
-    //update the task state
     const updatedTasks = tasks.map(task => {
       if(task.id === id) {
-        //change completed to be true
         task.completed = true;
       }
       return task;
@@ -46,10 +38,6 @@ function App() {
   }
 
   function addTask(text, dueDate) {
-    //get a copy of the tasks that are already there
-    //create a new task, and merge in in to this array
-    //update the task state
-
     const newTask = { 
       text: text, 
       completed: false, 
