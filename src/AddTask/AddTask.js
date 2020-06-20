@@ -6,7 +6,7 @@ import './AddTask.css';
 
 function AddTask(props) {
   const [text, setText] = useState("");
-  const [dueDate, setDueDate] = useState("");
+  // const [dueDate, setDueDate] = useState("");
 
   return (
       <Fragment>
@@ -18,15 +18,15 @@ function AddTask(props) {
               id="taskInput"
               onChange={ e => setText(e.target.value) }
               value={ text }/>
-            <input 
+            {/* <input 
               type="date" 
               className="form-control add-task__input-field add-task--date"
               onChange={ e => setDueDate(e.target.value) }
-              value={ dueDate }/>
+              value={ dueDate }/> */}
             <button 
               type="button" 
               className="btn btn-primary add-task__add-button"
-              onClick={ () => props.addTask(text, dueDate) }
+              onClick={ () => props.addTask(text) }
               >Add</button>
         </form> 
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from "react";
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 
 import Header from "./Header/Header";
@@ -59,17 +59,30 @@ function App() {
     setTasks(updatedTasks);
   }
 
-  function addTask(text, dueDate) {
+  function addTask(text) {
     const newTask = { 
       description: text, 
-      completed: false, 
-      dueDate: dueDate, 
+      completed: false
       // id: uuidv4() 
     }
 
-    const updatedTasks = [ ...tasks, newTask ]
+    axios
+    .post('https://1yj9s4sce3.execute-api.eu-west-1.amazonaws.com/dev/tasks', newTask)
+    .then(
+      //If the request is successful, get the task id and add it to the new task object
+      (response) => {
+        newTask.task_id = response.data.task[0].task_id;
+        console.log(newTask);
+        const updatedTasks = [ ...tasks, newTask ]
+        setTasks(updatedTasks);
+        console.log(tasks);
+      }
+    )
+    .catch((error) => {
+      console.log('Error adding a task', error)
+    })
 
-    setTasks(updatedTasks);
+    
   }
 
   return (
@@ -79,8 +92,21 @@ function App() {
       { tasks && (
         <Fragment>
           <RemainingTasks count={ activeTasks.length }/>
-        <ul className="task-list">
-          { activeTasks.map(task => {
+          <ul className="task-list">
+            { activeTasks.map(task => {
+              return <TaskItem 
+                completeTask={ completeTask }
+                deleteTask={ deleteTask } 
+                id={ task.task_id } 
+                key={ task.task_id } 
+                text={ task.description } 
+                completed={ task.completed } 
+                dueDate={ task.dueDate }/>
+            })}
+          </ul>
+  
+          <ul className="task-list">
+          { completedTasks.map(task => { 
             return <TaskItem 
               completeTask={ completeTask }
               deleteTask={ deleteTask } 
@@ -90,20 +116,7 @@ function App() {
               completed={ task.completed } 
               dueDate={ task.dueDate }/>
           })}
-        </ul>
-  
-        <ul className="task-list">
-        { completedTasks.map(task => { 
-          return <TaskItem 
-            completeTask={ completeTask }
-            deleteTask={ deleteTask } 
-            id={ task.task_id } 
-            key={ task.task_id } 
-            text={ task.description } 
-            completed={ task.completed } 
-            dueDate={ task.dueDate }/>
-        })}
-        </ul>
+          </ul>
         </Fragment>
       )}
     </div>
